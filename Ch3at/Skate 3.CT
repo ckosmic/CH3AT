@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="31">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>64</ID>
+      <Description>"Get on Board Speed"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>301832444</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>65</ID>
+      <Description>"Visibility"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>30183E3E0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>66</ID>
+      <Description>"Screen Wide/Flat"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>3018405E0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>67</ID>
+      <Description>"Run Speed 1"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>301847188</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>68</ID>
+      <Description>"Run Speed 2"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>30184718C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>69</ID>
+      <Description>"Gravity"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>30184FFB4</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>72</ID>
+      <Description>"Boneless Speed"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>301856CD4</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>73</ID>
+      <Description>"Hippy Jump Height"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>301857678</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>93</ID>
+      <Description>"Ollie Height"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>301857F1C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>74</ID>
+      <Description>"Jumping Height"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>301858198</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18480</ID>
+      <Description>"Insane Rotation Right"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>301858610</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>75</ID>
+      <Description>"Insane Rotation Left"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>301858620</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>867</ID>
+      <Description>"Giant NPCs"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>30185AB8C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1772</ID>
+      <Description>"Disable L3 Icon in Replay"</Description>
+      <Options moHideChildren="1" moRecursiveSetValue="1"/>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>3018FE520</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>1773</ID>
+          <Description>"No Description"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>Float Big Endian</CustomType>
+          <Address>3018FE530</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1769</ID>
+          <Description>"No description"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>Float Big Endian</CustomType>
+          <Address>3018FE534</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>1770</ID>
+          <Description>"No description"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>Float Big Endian</CustomType>
+          <Address>3018FE544</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18481</ID>
+      <Description>"MiniSkaters Mode"</Description>
+      <VariableType>Byte</VariableType>
+      <Address>30192A2E0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>76</ID>
+      <Description>"Hippy Jump Gravity"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>30194FE64</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1505</ID>
+      <Description>"Red"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>3019A0160</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1506</ID>
+      <Description>"Green"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>3019A0164</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1507</ID>
+      <Description>"Blue"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>3019A0168</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1516</ID>
+      <Description>"Minimap"</Description>
+      <Options moHideChildren="1" moRecursiveSetValue="1"/>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>3019B5F88</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>77</ID>
+      <Description>"Party Play Player Selection"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>4 Byte Big Endian</CustomType>
+      <Address>33004A460</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>78</ID>
+          <Description>"Player 2"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>4 Byte Big Endian</CustomType>
+          <Address>33004A464</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>79</ID>
+          <Description>"Player 3"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>4 Byte Big Endian</CustomType>
+          <Address>33004A468</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>80</ID>
+          <Description>"Player 4"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>4 Byte Big Endian</CustomType>
+          <Address>33004A46C</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Party Play Difficulty Settings"</Description>
+      <VariableType>Byte</VariableType>
+      <Address>330085447</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>2</ID>
+          <Description>"Player 2"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>3300854EF</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>3</ID>
+          <Description>"Player 3"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>330085597</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>4</ID>
+          <Description>"Player 4"</Description>
+          <VariableType>Byte</VariableType>
+          <Address>33008563F</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20995</ID>
+      <Description>"Tree Animation... Skate School"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>3300F22B4</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20994</ID>
+      <Description>"Gravity 2"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>330225444</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>21274</ID>
+      <Description>"Fast Spin"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>3302337F4</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9687</ID>
+      <Description>"Slow Acceleration"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>330285A24</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>86</ID>
+      <Description>"Field of View"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>33029A8F0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9511</ID>
+      <Description>"Hall of Meat Brightness"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>33090AA48</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9655</ID>
+      <Description>"Disable Fisheye Edges"</Description>
+      <Options moHideChildren="1" moRecursiveSetValue="1"/>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>330935548</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>9654</ID>
+          <Description>"hall of meat camera"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>Float Big Endian</CustomType>
+          <Address>330935568</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>84</ID>
+      <Description>"3 2 1 Timer"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>33095DF48</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>85</ID>
+      <Description>"S.K.A.T.E. Timer"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>3309626A8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20988</ID>
+      <Description>"Regs Timer"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>330963EA8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>87</ID>
+      <Description>"Hall of Meat Timer"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>3309848F8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>88</ID>
+      <Description>"20 Sec 1up Timer"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>33098B858</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>89</ID>
+      <Description>"15 Sec SB Timer"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>330A134B8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>90</ID>
+      <Description>"45 Sec SB Timer"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>330A2F8B8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>91</ID>
+      <Description>"65 Sec SB Timer"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>330A2F978</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20998</ID>
+      <Description>"Remove "Show" in Replay"</Description>
+      <VariableType>String</VariableType>
+      <Length>10</Length>
+      <Unicode>0</Unicode>
+      <CodePage>0</CodePage>
+      <ZeroTerminate>1</ZeroTerminate>
+      <Address>34065549B</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2809</ID>
+      <Description>"Ragdoll 1"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340DCFD04</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2810</ID>
+      <Description>"Ragdoll 2"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340DCFD08</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>465</ID>
+      <Description>"Board Glow"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E53D40</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>10941</ID>
+      <Description>"Skater's Brightness"</Description>
+      <Options moHideChildren="1" moRecursiveSetValue="1"/>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E54524</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>10883</ID>
+          <Description>"shirt/pants"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>Float Big Endian</CustomType>
+          <Address>340E54184</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10862</ID>
+          <Description>"wheels"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>Float Big Endian</CustomType>
+          <Address>340E54014</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10845</ID>
+          <Description>"arms"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>Float Big Endian</CustomType>
+          <Address>340E53EA4</Address>
+        </CheatEntry>
+        <CheatEntry>
+          <ID>10809</ID>
+          <Description>"head"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>Float Big Endian</CustomType>
+          <Address>340E53BA4</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>9688</ID>
+      <Description>"Jumping Gravity"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5A684</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>94</ID>
+      <Description>"Footplant Damage"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5BA74</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Footplant Forever"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5BA7C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2330</ID>
+      <Description>"No Comply Pop"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5DEB0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2331</ID>
+      <Description>"Fall damage"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5F37C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18477</ID>
+      <Description>"Hall of Meat Bail Timer"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5F3A4</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20999</ID>
+      <Description>"Hippy Jump Fall Damage"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5F3C0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20991</ID>
+      <Description>"Helicopter Spread Eagle"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5F544</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20989</ID>
+      <Description>"HOM Gliding Speed"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5F564</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20990</ID>
+      <Description>"HOM Target Speed"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5F568</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20992</ID>
+      <Description>"HOM Horizontal Speed"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5F56C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18478</ID>
+      <Description>"Slow Fall Spread Eagle"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5F57C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>95</ID>
+      <Description>"Super Torpedo Spin"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5F618</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>96</ID>
+      <Description>"Slow Fall"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E5F87C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>63</ID>
+      <Description>"Body Shadow"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E62F9C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>97</ID>
+      <Description>"Brightness"</Description>
+      <Options moHideChildren="1" moRecursiveSetValue="1"/>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E63070</Address>
+      <CheatEntries>
+        <CheatEntry>
+          <ID>21275</ID>
+          <Description>"No description"</Description>
+          <VariableType>Custom</VariableType>
+          <CustomType>Float Big Endian</CustomType>
+          <Address>340E63FF0</Address>
+        </CheatEntry>
+      </CheatEntries>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>13733</ID>
+      <Description>"Skate School Sun Position"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E643A4</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>99</ID>
+      <Description>"Display Seconds"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E6814C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>100</ID>
+      <Description>"Display Air Distance"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E68158</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>101</ID>
+      <Description>"Display Air Height"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E68164</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>102</ID>
+      <Description>"Display Drop in ft"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E6817C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>103</ID>
+      <Description>"Display Tricks in Sequence"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E68188</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18484</ID>
+      <Description>"x1 multiplier"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E68240</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>20997</ID>
+      <Description>"x3 multiplier"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E68270</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18482</ID>
+      <Description>"x2 multiplier"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E68278</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>18483</ID>
+      <Description>"x1.5 multiplier"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>340E6828C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>104</ID>
+      <Description>"Bail Gravity/Object Gravity"</Description>
+      <VariableType>Custom</VariableType>
+      <CustomType>Float Big Endian</CustomType>
+      <Address>347A8B294</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
