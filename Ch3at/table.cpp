@@ -453,7 +453,7 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 		int w, h;
 		SDL_GetWindowSize(window, &w, &h);
 		GetClientRect(parentWindow, &parentRect);
-		if (IsWindowVisible(hwnd)) {
+		if (windowShown) {
 			SDL_SetWindowSize(window, w, parentRect.bottom - parentRect.top);
 			SetWindowPos(hwnd, HWND_TOP, 0, 0, w, parentRect.bottom - parentRect.top, SWP_NOZORDER | SWP_NOACTIVATE);
 			SDL_RenderClear(renderer);

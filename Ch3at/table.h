@@ -11,7 +11,7 @@
 #include "rapidxml/rapidxml.hpp"
 #include "helper.h"
 
-#define VERSION "1.0.1"
+#define VERSION "1.0.2"
 
 using namespace std;
 using namespace rapidxml;
