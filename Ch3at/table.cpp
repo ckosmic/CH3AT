@@ -10,7 +10,6 @@ void openTable() {
 	doc.parse<0>((char*)contents.c_str());
 
 	xml_node<>* node = doc.first_node("CheatTable")->first_node("CheatEntries");
-	cout << node->name() << endl;
 	for (xml_node<>* entryNode = node->first_node("CheatEntry"); entryNode; entryNode = entryNode->next_sibling()) {
 		CheatEntry ce = CheatEntry();
 		uint64_t address = strtoull(entryNode->first_node("Address")->value(), NULL, 16);
@@ -292,10 +291,10 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 
 	TTF_Init();
 	TTF_Font* superFont = nullptr;
-	superFont = TTF_OpenFont("unispace_bd.ttf", 30);
+	superFont = TTF_OpenFont("fonts/unispace_bd.ttf", 30);
 
 	TTF_Font* font = nullptr;
-	font = TTF_OpenFont("dos_vga.ttf", 16);
+	font = TTF_OpenFont("fonts/dos_vga.ttf", 16);
 
 	SetParent(hwnd, parentWindow);
 
@@ -328,6 +327,24 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 		{ 200, 200, 200, 255 }
 	};
 	buttons.push_back(donateButton);
+	button_t closeButton = {
+		110,
+		10,
+		(char*)"Close CH3AT Process",
+		font,
+		{ 0, 0, 0 },
+		{ 200, 200, 200, 255 }
+	};
+	buttons.push_back(closeButton);
+	button_t restoreButton = {
+		155,
+		10,
+		(char*)"Restore Defaults",
+		font,
+		{ 0, 0, 0 },
+		{ 200, 200, 200, 255 }
+	};
+	buttons.push_back(restoreButton);
 
 	SDL_Event e;
 	bool quit = false;
@@ -335,11 +352,13 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 	bool hotkeyPressed = 0;
 	int cursorLocation = 0;
 	bool textInput = false;
+	bool windowShown = true;
+	int scrollStep = 40;
 
 	while (!quit) {
-		if(IsWindowVisible(hwnd)) {
-			while (SDL_PollEvent(&e)) {
-				if (e.type == SDL_KEYDOWN) {
+		while (SDL_PollEvent(&e)) {
+			if (e.type == SDL_KEYDOWN) {
+				if(IsWindowVisible(hwnd)) {
 					if(textInput) {
 						if (e.key.keysym.sym == SDLK_BACKSPACE && textInputs[selectedInput].length() > 0 && cursorLocation > 0) {
 							textInputs[selectedInput].erase(textInputs[selectedInput].begin() + (cursorLocation - 1));
@@ -365,58 +384,69 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 							cursorLocation = textInputs[selectedInput].size();
 						}
 					}
-				} else if(e.type == SDL_TEXTINPUT) {
-					if (!(SDL_GetModState() & KMOD_CTRL && (e.text.text[0] == 'c' || e.text.text[0] == 'C' || e.text.text[0] == 'v' || e.text.text[0] == 'V')) && e.text.text[0] != '`') {
-						string tmp(textInputs[selectedInput]);
-						int tmpCL = cursorLocation;
-						for (int i = 0; i < string(e.text.text).size(); i++) {
-							tmp.insert(tmp.begin() + cursorLocation, 1, e.text.text[i]);
-							cursorLocation++;
-						}
-						if (cheatEntries[selectedInput].valueType != VT_String) {
-							if (isDigits(tmp))
-								textInputs[selectedInput].assign(tmp);
-							else
-								cursorLocation = tmpCL;
-						} else {
-							textInputs[selectedInput].assign(tmp);
-						}
+					if (e.key.keysym.sym == SDLK_DOWN) {
+						scroll += scrollStep;
+						if (scroll < 0) scroll = 0;
+						if (scroll > 24 * textInputs.size() - (parentRect.bottom - parentRect.top) + 170) scroll = 24 * textInputs.size() - (parentRect.bottom - parentRect.top) + 170;
+					} else if (e.key.keysym.sym == SDLK_UP) {
+						scroll -= scrollStep;
+						if (scroll < 0) scroll = 0;
+						if (scroll > 24 * textInputs.size() - (parentRect.bottom - parentRect.top) + 170) scroll = 24 * textInputs.size() - (parentRect.bottom - parentRect.top) + 170;
 					}
-				} else if(e.type == SDL_MOUSEWHEEL) {
+				}
+			} else if(e.type == SDL_TEXTINPUT) {
+				if (!(SDL_GetModState() & KMOD_CTRL && (e.text.text[0] == 'c' || e.text.text[0] == 'C' || e.text.text[0] == 'v' || e.text.text[0] == 'V')) && e.text.text[0] != '`' && IsWindowVisible(hwnd)) {
+					string tmp(textInputs[selectedInput]);
+					int tmpCL = cursorLocation;
+					for (int i = 0; i < string(e.text.text).size(); i++) {
+						tmp.insert(tmp.begin() + cursorLocation, 1, e.text.text[i]);
+						cursorLocation++;
+					}
+					if (cheatEntries[selectedInput].valueType != VT_String) {
+						if (isDigits(tmp))
+							textInputs[selectedInput].assign(tmp);
+						else
+							cursorLocation = tmpCL;
+					} else {
+						textInputs[selectedInput].assign(tmp);
+					}
+				}
+			} else if(e.type == SDL_MOUSEWHEEL) {
+				if(IsWindowVisible(hwnd)) {
 					if (e.wheel.y > 0) {
-						scroll -= 30;
+						scroll -= scrollStep;
 					} else if(e.wheel.y < 0) {
-						scroll += 30;
+						scroll += scrollStep;
 					}
 					if (scroll < 0) scroll = 0;
 					if (scroll > 24 * textInputs.size() - (parentRect.bottom - parentRect.top) + 170) scroll = 24 * textInputs.size() - (parentRect.bottom - parentRect.top) + 170;
-				} else if(e.type == SDL_QUIT) {
-					quit = true;
 				}
+			} else if(e.type == SDL_QUIT) {
+				quit = true;
+			}
 
-				for (int i = 0; i < cheatEntries.size(); i++) {
-					SDL_Rect tbRect;
-					tbRect.x = 300;
-					tbRect.y = 24 * i + 70 - scroll;
-					tbRect.w = 170;
-					tbRect.h = 20;
-					int state = textBoxEvent(tbRect, &e);
-					if (state == 1) {
-						submitValues(selectedInput, hProcess, &textInputs);
-						selectedInput = i;
-						textInput = true;
-						SDL_StartTextInput();
-						cursorLocation = textInputs[selectedInput].size();
-					} else if(state == 2) {
-						textInputs[selectedInput] = getStringValue(selectedInput);
-						cursorLocation = textInputs[selectedInput].size();
-						submitValues(selectedInput, hProcess, &textInputs);
-					}
+			for (int i = 0; i < cheatEntries.size(); i++) {
+				SDL_Rect tbRect;
+				tbRect.x = 300;
+				tbRect.y = 24 * i + 70 - scroll;
+				tbRect.w = 170;
+				tbRect.h = 20;
+				int state = textBoxEvent(tbRect, &e);
+				if (state == 1) {
+					submitValues(selectedInput, hProcess, &textInputs);
+					selectedInput = i;
+					textInput = true;
+					SDL_StartTextInput();
+					cursorLocation = textInputs[selectedInput].size();
+				} else if(state == 2) {
+					textInputs[selectedInput] = getStringValue(selectedInput);
+					cursorLocation = textInputs[selectedInput].size();
+					submitValues(selectedInput, hProcess, &textInputs);
 				}
+			}
 
-				for (int i = 0; i < buttons.size(); i++) {
-					buttonEvent(&buttons[i], &e);
-				}
+			for (int i = 0; i < buttons.size(); i++) {
+				buttonEvent(&buttons[i], &e);
 			}
 		}
 
@@ -436,11 +466,13 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 				BringWindowToTop(parentWindow);
 				SDL_StopTextInput();
 				textInput = false;
+				windowShown = false;
 			} else {
 				SetWindowPos(hwnd, HWND_TOP, 0, 0, w, parentRect.bottom - parentRect.top, SWP_NOZORDER | SWP_NOACTIVATE | SWP_SHOWWINDOW);
 				BringWindowToTop(hwnd);
 				SDL_StopTextInput();
 				textInput = false;
+				windowShown = true;
 			}
 		}
 
@@ -474,6 +506,17 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 			if (button(renderer, &buttons[1])) {
 				system(string("start https://paypal.me/ckosmic").c_str());
 			}
+			buttons[2].y = 24 * textInputs.size() + 125 - scroll;
+			if (button(renderer, &buttons[2])) {
+				quit = 1;
+			}
+			buttons[3].y = 24 * textInputs.size() + 80 - scroll;
+			if (button(renderer, &buttons[3])) {
+				for (int i = 0; i < textInputs.size(); i++) {
+					textInputs[i] = getStringValue(i);
+					submitValues(i, hProcess, &textInputs);
+				}
+			}
 
 			if (textInput) {
 				SDL_Rect cursorRect = { 308 + cursorLocation * 9, 24 * selectedInput + 72 - scroll, 1, 16 };
@@ -494,4 +537,5 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 
 	SDL_DestroyWindow(window);
 	SDL_Quit();
+	return;
 }

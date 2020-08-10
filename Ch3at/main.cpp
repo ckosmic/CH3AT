@@ -3,6 +3,7 @@
 using namespace std;
 
 int main(int argc, char* argv[]) {
+    ShowWindow(GetConsoleWindow(), SW_HIDE);
     openTable();
 
     PROCESSENTRY32 entry;
@@ -24,8 +25,6 @@ int main(int argc, char* argv[]) {
     }
 
     CloseHandle(snapshot);
-
-    system("pause");
 
 	return 1;
 }
