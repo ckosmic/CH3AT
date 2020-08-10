@@ -5,6 +5,7 @@ vector<CheatEntry> cheatEntries;
 void openTable() {
 	ifstream file("Skate 3.CT");
 	string contents((istreambuf_iterator<char>(file)), istreambuf_iterator<char>());
+	file.close();
 
 	xml_document<> doc;
 	doc.parse<0>((char*)contents.c_str());
@@ -125,9 +126,8 @@ bool loadFont(const char* fontName, int size, TTF_Font* font) {
 void printText(SDL_Renderer* renderer, TTF_Font* font, char* text, int x, int y, SDL_Color color) {
 	SDL_Surface* text_surface;
 	if (!(text_surface = TTF_RenderText_Solid(font, text, color))) {
-
-	}
-	else {
+		SDL_FreeSurface(text_surface);
+	} else {
 		SDL_Texture* text_texture = SDL_CreateTextureFromSurface(renderer, text_surface);
 		SDL_FreeSurface(text_surface);
 		SDL_Rect srcRect;
@@ -453,9 +453,11 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 		int w, h;
 		SDL_GetWindowSize(window, &w, &h);
 		GetClientRect(parentWindow, &parentRect);
-		SDL_SetWindowSize(window, w, parentRect.bottom - parentRect.top);
-		SetWindowPos(hwnd, HWND_TOP, 0, 0, w, parentRect.bottom - parentRect.top, SWP_NOZORDER | SWP_NOACTIVATE);
-		SDL_RenderClear(renderer);
+		if (IsWindowVisible(hwnd)) {
+			SDL_SetWindowSize(window, w, parentRect.bottom - parentRect.top);
+			SetWindowPos(hwnd, HWND_TOP, 0, 0, w, parentRect.bottom - parentRect.top, SWP_NOZORDER | SWP_NOACTIVATE);
+			SDL_RenderClear(renderer);
+		}
 
 		if (GetAsyncKeyState(VK_OEM_3)) {
 			hotkeyPressed = 1;
