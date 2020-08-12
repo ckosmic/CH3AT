@@ -18,6 +18,8 @@ struct handleData {
 	HWND windowHandle;
 };
 
+extern uint64_t baseAddress;
+
 bool readFloatBigEndian(HANDLE hProcess, uint64_t location, float* out);
 bool readByte(HANDLE hProcess, uint64_t location, int* out);
 bool read4ByteBigEndian(HANDLE hProcess, uint64_t location, int* out);
@@ -28,6 +30,7 @@ void writeByte(HANDLE hProcess, uint64_t location, byte in);
 void write4ByteBigEndian(HANDLE hProcess, uint64_t location, int in);
 void write2ByteBigEndian(HANDLE hProcess, uint64_t location, int in);
 void writeString(HANDLE hProcess, uint64_t location, const char* in, int length);
+uint64_t getBaseAddress(HANDLE hProcess);
 
 #endif // !HELPER_H
 

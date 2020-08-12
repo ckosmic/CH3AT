@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrozenTable>
+	<FrozenEntries>
+		<FrozenEntry>
+			<Description>Air Timer</Description>
+			<VariableType>Custom</VariableType>
+			<CustomType>4 Byte Big Endian</CustomType>
+			<Offset>-134</Offset>
+		</FrozenEntry>
+		<FrozenEntry>
+			<Description>Motorized Board (THPS Mode)</Description>
+			<VariableType>Custom</VariableType>
+			<CustomType>Float Big Endian</CustomType>
+			<Address>330295A24</Address>
+		</FrozenEntry>
+	</FrozenEntries>
+</FrozenTable>

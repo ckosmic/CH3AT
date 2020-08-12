@@ -7,11 +7,12 @@
 #include <string>
 #include <vector>
 #include <cstdio>
+#include <thread>
 
 #include "rapidxml/rapidxml.hpp"
 #include "helper.h"
 
-#define VERSION "1.0.2"
+#define VERSION "1.1.0"
 
 using namespace std;
 using namespace rapidxml;
@@ -49,6 +50,8 @@ struct TextBoxCollider {
 struct button_t {
 	uint32_t x;
 	uint32_t y;
+	uint32_t w;
+	uint32_t h;
 	char* text;
 	TTF_Font* font;
 	SDL_Color textColor;
@@ -79,10 +82,11 @@ public:
 	int stringLength;
 	ValueType valueType;
 
-	bool rerender = true;
+	bool active = true;
 };
 
 extern vector<CheatEntry> cheatEntries;
+extern vector<CheatEntry> freezeEntries;
 
 void openTable();
 void loadValues(HANDLE hProcess);
@@ -90,5 +94,7 @@ HWND findMainWindow(unsigned long pid);
 BOOL CALLBACK enumWindowsCallback(HWND handle, LPARAM lParam);
 bool isMainWindow(HWND handle);
 void sdlWindow(unsigned long pid, HANDLE hProcess);
+void openFrozenTable();
+void loadValuesFrozen(HANDLE hProcess);
 
 #endif // !TABLE_H

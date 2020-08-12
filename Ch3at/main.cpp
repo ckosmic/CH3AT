@@ -4,7 +4,6 @@ using namespace std;
 
 int main(int argc, char* argv[]) {
 	ShowWindow(GetConsoleWindow(), SW_HIDE);
-	openTable();
 
 	PROCESSENTRY32 entry;
 	entry.dwSize = sizeof(PROCESSENTRY32);
@@ -16,7 +15,14 @@ int main(int argc, char* argv[]) {
 			if (wcscmp(entry.szExeFile, L"rpcs3.exe") == 0) {
 				HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, entry.th32ProcessID);
 
+				baseAddress = getBaseAddress(hProcess);
+				cout << hex << baseAddress << endl;
+
+				openTable();
+				openFrozenTable();
+
 				loadValues(hProcess);
+				loadValuesFrozen(hProcess);
 				sdlWindow(entry.th32ProcessID, hProcess);
 			   
 				CloseHandle(hProcess);
