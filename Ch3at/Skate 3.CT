@@ -254,7 +254,7 @@
       <Description>"Field of View"</Description>
       <VariableType>Custom</VariableType>
       <CustomType>Float Big Endian</CustomType>
-      <Address>33029A8F0</Address>
+      <Address>3302528F0</Address>
     </CheatEntry>
     <CheatEntry>
       <ID>9511</ID>
@@ -442,7 +442,7 @@
     </CheatEntry>
     <CheatEntry>
       <ID>18477</ID>
-      <Description>"Hall of Meat Bail Timer"</Description>
+      <Description>"Air Bail Timer"</Description>
       <VariableType>Custom</VariableType>
       <CustomType>Float Big Endian</CustomType>
       <Address>340E5F3A4</Address>

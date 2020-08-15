@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrozenTable>
+	<UpdateTime>1</UpdateTime>
 	<FrozenEntries>
 		<FrozenEntry>
 			<Description>Air Timer</Description>
@@ -12,6 +13,24 @@
 			<VariableType>Custom</VariableType>
 			<CustomType>Float Big Endian</CustomType>
 			<Address>330295A24</Address>
+		</FrozenEntry>
+		<FrozenEntry>
+			<Description>Camera Distance</Description>
+			<VariableType>Custom</VariableType>
+			<CustomType>Float Big Endian</CustomType>
+			<Address>330035F7C</Address>
+		</FrozenEntry>
+		<FrozenEntry>
+			<Description>Camera X</Description>
+			<VariableType>Custom</VariableType>
+			<CustomType>Float Big Endian</CustomType>
+			<Address>3303331B0</Address>
+		</FrozenEntry>
+		<FrozenEntry>
+			<Description>Camera Z</Description>
+			<VariableType>Custom</VariableType>
+			<CustomType>Float Big Endian</CustomType>
+			<Address>3303331B8</Address>
 		</FrozenEntry>
 	</FrozenEntries>
 </FrozenTable>

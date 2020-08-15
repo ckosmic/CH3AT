@@ -4,6 +4,8 @@ vector<CheatEntry> cheatEntries;
 vector<CheatEntry> freezeEntries;
 
 bool windowShown = true;
+bool quit = false;
+float freezeUpdate = 1000.0/60.0;
 
 // Opens and parses the cheat table, places it into the cheatEntries vector
 void openTable() {
@@ -113,6 +115,8 @@ void openFrozenTable() {
 
 	xml_document<> doc;
 	doc.parse<0>((char*)contents.c_str());
+
+	freezeUpdate = atof(doc.first_node("FrozenTable")->first_node("UpdateTime")->value());
 
 	xml_node<>* node = doc.first_node("FrozenTable")->first_node("FrozenEntries");
 	for (xml_node<>* entryNode = node->first_node("FrozenEntry"); entryNode; entryNode = entryNode->next_sibling()) {
@@ -508,7 +512,7 @@ bool toggle(SDL_Renderer* renderer, button_t* button, bool enabled) {
 
 // Freeze values on a different thread since reading/writing process memory is kind of slow
 void freezeThread(unsigned long pid, HANDLE hProcess, vector<string>* textInputs) {
-	while (true) {
+	while (!quit) {
 		for (int i = 0; i < freezeEntries.size(); i++) {
 			string ti = (*textInputs)[i + cheatEntries.size()];
 			if (freezeEntries[i].active) {
@@ -537,7 +541,7 @@ void freezeThread(unsigned long pid, HANDLE hProcess, vector<string>* textInputs
 				(*textInputs)[i + cheatEntries.size()] = value;
 			}
 		}
-		Sleep(1000/20);
+		Sleep(freezeUpdate);
 	}
 }
 
@@ -563,6 +567,11 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 	HWND hwnd = info.info.win.window;
 	HDC hdc = GetDC(hwnd);
 	SDL_EventState(SDL_DROPFILE, SDL_DISABLE); // Enabling this causes random exceptions? i dont get why
+
+	if (!IsWindow(parentWindow)) {
+		int choice = MessageBoxA(hwnd, "Skate 3 is not currently running.", "CH3AT Error", MB_OK | MB_ICONERROR);
+		if (choice == IDCANCEL) quit = 1;
+	}
 
 	TTF_Init();
 	TTF_Font* superFont = nullptr;
@@ -652,7 +661,6 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 	thread freeze(freezeThread, pid, hProcess, &textInputs);
 
 	SDL_Event e;
-	bool quit = false;
 	int scroll = 0;
 	bool hotkeyPressed = 0;
 	int cursorLocation = 0;
@@ -660,6 +668,9 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 	int scrollStep = 40;
 
 	while (!quit) {
+		if (!IsWindow(parentWindow))
+			quit = 1;
+
 		while (SDL_PollEvent(&e)) {
 			if (e.type == SDL_KEYDOWN) {
 				if(IsWindowVisible(hwnd)) {
@@ -891,6 +902,13 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 			printText(renderer, font, ("version " + string(VERSION)).c_str(), 350, 27, { 255, 255, 255 });
 
 			SDL_RenderPresent(renderer);
+		}
+
+		char buffer[256];
+		GetWindowTextA(parentWindow, buffer, 256);
+		string bufferStr = string(buffer);
+		if (bufferStr.find(" | CH3AT") == string::npos) {
+			SetWindowTextA(parentWindow, (string(buffer) + " | CH3AT").c_str());
 		}
 	}
 
