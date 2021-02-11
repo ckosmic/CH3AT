@@ -264,7 +264,23 @@ BOOL CALLBACK enumWindowsCallback(HWND handle, LPARAM lParam) {
 bool isMainWindow(HWND handle) {
 	char windowTitle[256];
 	GetWindowTextA(handle, windowTitle, 256);
-	return GetWindow(handle, GW_OWNER) == (HWND)0 && IsWindowVisible(handle) && strstr(windowTitle, "RPCS3") == nullptr;
+	return (
+		GetWindow(handle, GW_OWNER) == (HWND)0 &&
+		IsWindowVisible(handle) &&
+		strstr(windowTitle, "RPCS3") == nullptr &&
+		isGameWindow((string)windowTitle)
+		);
+}
+
+bool isGameWindow(string windowTitle) {
+	const vector<string> validGameIds = { "BLES00760","BLJM60296","BLJM60437","BLJM61141","BLUS30464" };
+	for (string const& gameId : validGameIds) {
+		/* Check if the window title contains one of the valid game ID's for Skate 3*/
+		if (windowTitle.find(gameId) != string::npos) {
+			return true;
+		}
+	}
+	return false;
 }
 
 bool loadFont(const char* fontName, int size, TTF_Font* font) {

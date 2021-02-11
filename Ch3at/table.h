@@ -93,6 +93,7 @@ void loadValues(HANDLE hProcess);
 HWND findMainWindow(unsigned long pid);
 BOOL CALLBACK enumWindowsCallback(HWND handle, LPARAM lParam);
 bool isMainWindow(HWND handle);
+bool isGameWindow(string titleString);
 void sdlWindow(unsigned long pid, HANDLE hProcess);
 void openFrozenTable();
 void loadValuesFrozen(HANDLE hProcess);
