@@ -12,7 +12,7 @@
 #include "rapidxml/rapidxml.hpp"
 #include "helper.h"
 
-#define VERSION "1.1.1"
+#define VERSION "1.1.2"
 
 using namespace std;
 using namespace rapidxml;
@@ -79,7 +79,7 @@ public:
 	float default_floatValue;
 	char default_stringValue[256];
 
-	int stringLength;
+	int stringLength = 0;
 	ValueType valueType;
 
 	bool active = true;

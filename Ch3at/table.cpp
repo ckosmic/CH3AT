@@ -21,7 +21,7 @@ void openTable() {
 		CheatEntry ce = CheatEntry();
 		xml_node<>* addr = entryNode->first_node("Address");
 		xml_node<>* offs = entryNode->first_node("Offset");
-		uint64_t address;
+		uint64_t address = 0;
 		if (addr != nullptr) {
 			address = strtoull(addr->value(), NULL, 16);
 		}
@@ -608,7 +608,7 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 	}
 	for (int i = 0; i < freezeEntries.size(); i++) {
 		string value;
-		value = getStringValueFrozen(i);
+		value = getStringValueFrozen(i + cheatEntries.size());
 
 		textInputs.push_back(value);
 		freezeEntries[i].active = false;
@@ -739,13 +739,24 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 						tmp.insert(tmp.begin() + cursorLocation, 1, e.text.text[i]);
 						cursorLocation++;
 					}
-					if (cheatEntries[selectedInput].valueType != VT_String) {
-						if (isDigits(tmp))
+					if (selectedInput > cheatEntries.size() - 1) {
+						if (freezeEntries[selectedInput - cheatEntries.size()].valueType != VT_String) {
+							if (isDigits(tmp))
+								textInputs[selectedInput].assign(tmp);
+							else
+								cursorLocation = tmpCL;
+						} else {
 							textInputs[selectedInput].assign(tmp);
-						else
-							cursorLocation = tmpCL;
+						}
 					} else {
-						textInputs[selectedInput].assign(tmp);
+						if (cheatEntries[selectedInput].valueType != VT_String) {
+							if (isDigits(tmp))
+								textInputs[selectedInput].assign(tmp);
+							else
+								cursorLocation = tmpCL;
+						} else {
+							textInputs[selectedInput].assign(tmp);
+						}
 					}
 				}
 			} else if(e.type == SDL_MOUSEWHEEL) {
@@ -770,8 +781,8 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 				tbRect.h = 20;
 				int state = textBoxEvent(tbRect, &e);
 				if (state == 1) {
-					submitValues(selectedInput, hProcess, &textInputs);
 					selectedInput = i;
+					submitValues(selectedInput, hProcess, &textInputs);
 					textInput = true;
 					SDL_StartTextInput();
 					cursorLocation = textInputs[selectedInput].size();
@@ -790,8 +801,8 @@ void sdlWindow(unsigned long pid, HANDLE hProcess) {
 				tbRect.h = 20;
 				int state = textBoxEvent(tbRect, &e);
 				if (state == 1) {
-					submitValuesFrozen(selectedInput, hProcess, &textInputs);
 					selectedInput = (i + cheatEntries.size());
+					submitValuesFrozen(selectedInput, hProcess, &textInputs);
 					textInput = true;
 					SDL_StartTextInput();
 					cursorLocation = textInputs[selectedInput].size();
