@@ -19,7 +19,9 @@ Download the latest release from the [Releases](https://github.com/ckosmic/CH3AT
 - Restore a default value by middle mouse clicking a textbox
 
 ## Building
-Open the solution in Visual Studio 2019.  The libraries used are already included so it should build fine but idk.
+- Download and extract the latest [SDL2_ttf development library](https://www.libsdl.org/projects/SDL_ttf/) and place it in the folder where CH3AT.sln is located.  Rename it to "SDL2_ttf".
+- Download and extract the latest [SDL2 development library](https://www.libsdl.org/download-2.0.php) and place it in the folder where CH3AT.sln is located.  Rename it to "SDL2".
+- Open the solution in Visual Studio 2019 and build.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
